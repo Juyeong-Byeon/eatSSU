@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="stylesheet", href="stylesheets/style.css")
+    title Document
+  body
+      block content
+        h1= title
+        p Welcome to #{title}
+        p 먹고싶은 음식을 골라보세요!
+        
+          table(border='2px')
+            tr
+              td  
+                a(href="/?category=한식") 한식
+              td
+                a(href="/?category=중식") 중식
+              td
+                a(href="/?category=일식") 일식
+              td
+                a(href="/?category=양식") 양식
+
+        each v in tableShow
+          div
+            
+            ul
+              a(href=v.storeName)=v.storeName
+              b=v.storeAddr
+              p=v.phoneNumber
+              a(href="/?category="+v.category+"/?storeName="+v.storeName)
+                img(src="images/"+v.storeName+".jpg", alt="음식점 사진",height='300px')
+              li=v.startTime
+              li=v.endTime
+              li=v.score
+              li=v.category
+
+    
+
+

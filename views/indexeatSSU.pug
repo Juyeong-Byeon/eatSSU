@@ -1,0 +1,35 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="utf-8")
+    title EatSSU
+    // Bootstrap core CSS
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+    link(href="stylesheets/ann.css" rel="stylesheet")
+  body
+    .page-container
+      .mb-3.p-4.pt-0.t_white.bg-bk
+        .position-relative.bottom-grey.py-3
+          .wrapper
+            a.blog-header-logo.t_white(href="/") EatSSU
+        .container.p-3.text-center
+          p.title
+            | What is my next class? 
+            br
+            | Pick it here!
+      .container.p-0
+        .card-wrapper
+          .row.m-0.justify-content-start
+            each v in tableShow
+              .flex-index.card
+                .img-box
+                  img.photo(src="images/"+v.storeName+".jpg" alt="")
+                .class-title-wrap
+                  a.text-dark.f15.font-weight-700.mb-05.mt-05.class-title(href="/class?classNo=${classNo}")=v.storeName
+                  p=v.storeAddr
+                .line
+                .d-flex.justify-content-between.align-items-center
+                  .row.f13.pl-15px
+                    .line-height-30.mobile
+                      b="TEL : "+v.phoneNumber
+                      b="   #category : "+v.category
