@@ -42,7 +42,7 @@ UPDATE review SET discription='수정 내용' where reviewID=(select reviewID FR
 
 
 
-//음식점 릴레이션
+-- //음식점 릴레이션
 CREATE TABLE restaurant(
     storeName CHAR(15) NOT NULL,
     storeAddr VARCHAR(30),
@@ -53,7 +53,7 @@ CREATE TABLE restaurant(
     category CHAR(5),
     PRIMARY key(storeName)
 );
-//리뷰 릴레이션
+-- //리뷰 릴레이션
 CREATE TABLE review(
     reviewID INT NOT NULL,
     storeName CHAR(15) NOT NULL,
