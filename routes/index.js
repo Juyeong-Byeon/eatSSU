@@ -6,9 +6,9 @@ router.use(express.static('public'));
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'dbgmlehd',
+  password : '654654',
   database : 'eatSSU',
-  port :3306
+  port :3307
 });
 
 connection.connect();
@@ -17,7 +17,10 @@ connection.connect();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.query.category);
+  let category=req.query.category
+  console.log(category);
+
+  if(category){
   connection.query(
     "SELECT *FROM restaurant WHERE category='"+req.query.category+"'",(error,results,fields)=>{
       if(error) console.log(error);
@@ -27,6 +30,18 @@ router.get('/', function(req, res, next) {
       }
     }
     );
+  }else{
+    connection.query(
+    "SELECT *FROM restaurant",(error,results,fields)=>{
+        if(error) console.log(error);
+        else{
+        console.log(results);
+        res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results});
+        }
+      }
+    );
+
+  }
  
 });
 

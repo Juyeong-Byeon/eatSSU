@@ -16,11 +16,13 @@ html(lang="ko")
             p.t_white.f30 음식점 여기 다 eatSSU!
       .container.p-0
         .card-wrapper
-          .category-wrapper
-            button.category 한식
-            button.category 중식
-            button.category 양식
-            button.category 일식
+          
+          form(action="/?category=", method="get")
+            .category-wrapper
+              button(type="submit" value='한식' name="category").category 한식
+              button(type="submit" value='중식' name="category").category 중식
+              button(type="submit" value='일식' name="category").category 일식
+              button(type="submit" value='양식' name="category").category 양식
           .row.m-0.justify-content-start
             each v in tableShow
               .flex-index.card
