@@ -45,13 +45,13 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/kind/:category', function(req, res, next) {
+router.get('/kind/:name', function(req, res, next) {
  
-  let category=req.params.category
+  let category=req.params.name
   console.log(req.params.name);
   if(category!='all'){
     connection.query(
-      "SELECT *FROM restaurant WHERE category='"+req.params.category+"'",(error,results,fields)=>{
+      "SELECT *FROM restaurant WHERE category='"+req.params.name+"'",(error,results,fields)=>{
         if(error) console.log(error);
         else{
         console.log(results);
@@ -77,19 +77,38 @@ router.get('/storeName:',(req,res,next)=>{
   res.send('OK');
 });
 
+
 router.get('/kind/:name/random', function(req, res, next) {
-  console.log(req.params.name);
-  connection.query(
-    "SELECT *FROM restaurant WHERE category='"+req.params.name+"'",(error,results,fields)=>{
-      if(error) console.log(error);
-      else{
-      console.log(results);
-      const randomIndex = Math.floor(Math.random() *  results.length);
-      console.log(randomIndex);
-      res.render('random', { title: 'eatSSU' ,store:results[randomIndex]});
+  
+  
+  let category=req.params.name
+  console.log(category);
+  if(category!="all"){
+    connection.query(
+      "SELECT *FROM restaurant WHERE category='"+category+"'",(error,results,fields)=>{
+        if(error) console.log(error);
+        else{
+        console.log(results);
+        const randomIndex = Math.floor(Math.random() *  results.length);
+        console.log(randomIndex);
+        res.render('random', { title: 'eatSSU' ,store:results[randomIndex]});
+        }
       }
-    }
-    );
+      );
+  }
+  else{
+      connection.query(
+        "SELECT *FROM restaurant",(error,results,fields)=>{
+          if(error) console.log(error);
+          else{
+          console.log(results);
+          const randomIndex = Math.floor(Math.random() *  results.length);
+          console.log(randomIndex);
+          res.render('random', { title: 'eatSSU' ,store:results[randomIndex]});
+          }
+        }
+        );
+  }
 
 });
 
