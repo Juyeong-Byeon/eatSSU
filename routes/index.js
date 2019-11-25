@@ -45,17 +45,31 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/kind/:name', function(req, res, next) {
+router.get('/kind/:category', function(req, res, next) {
+ 
+  let category=req.params.category
   console.log(req.params.name);
-  connection.query(
-    "SELECT *FROM restaurant WHERE category='"+req.params.name+"'",(error,results,fields)=>{
-      if(error) console.log(error);
-      else{
-      console.log(results);
-      res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results, name: req.params.name});
+  if(category!='all'){
+    connection.query(
+      "SELECT *FROM restaurant WHERE category='"+req.params.category+"'",(error,results,fields)=>{
+        if(error) console.log(error);
+        else{
+        console.log(results);
+        res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results, name: category});
+        }
       }
-    }
-    );
+      );  
+  }else{
+      connection.query(
+        "SELECT *FROM restaurant",(error,results,fields)=>{
+          if(error) console.log(error);
+          else{
+          console.log(results);
+          res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results });
+          }
+        }
+        );
+  }
  
 });
 

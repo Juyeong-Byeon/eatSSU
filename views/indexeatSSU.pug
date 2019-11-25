@@ -12,18 +12,16 @@ html(lang="ko")
       .mb-3.pt-0.t_white.bg-bk
         .position-relative.py-3
           .wrapper
-            a(href='/')
+            a(href='/kind/all')
               p.t_white.title.mb-0 EatSSU
               p.t_white.f30 음식점 여기 다 eatSSU!
       .container.p-0
         .card-wrapper
-          
-          form(action="/", method="get")
-            .category-wrapper
-              button(type="submit" value='한식' name="category").category 한식
-              button(type="submit" value='중식' name="category").category 중식
-              button(type="submit" value='일식' name="category").category 일식
-              button(type="submit" value='양식' name="category").category 양식
+          .category-wrapper
+            button(type="button" value='한식' name="category" onclick="location.href='/kind/한식'").category 한식
+            button(type="button" value='중식' name="category" onclick="location.href='/kind/중식'").category 중식
+            button(type="button" value='일식' name="category" onclick="location.href='/kind/일식'").category 일식
+            button(type="button" value='양식' name="category" onclick="location.href='/kind/양식'").category 양식
           .row.m-0.justify-content-start
             each v in tableShow
               .flex-index.card
