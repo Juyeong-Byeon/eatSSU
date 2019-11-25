@@ -18,7 +18,7 @@ html(lang="ko")
       .container.p-0
         .card-wrapper
           
-          form(action="/?category=", method="get")
+          form(action="/", method="get")
             .category-wrapper
               button(type="submit" value='한식' name="category").category 한식
               button(type="submit" value='중식' name="category").category 중식
@@ -40,4 +40,4 @@ html(lang="ko")
                     i.fas.fa-star
                     i.far.fa-star
                     i.far.fa-star
-                  span.grade (3.3)
+                  span.grade=v.score
