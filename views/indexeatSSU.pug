@@ -6,19 +6,21 @@ html(lang="ko")
     // Bootstrap core CSS
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
     link(href="stylesheets/ann.css" rel="stylesheet")
+    script(src="https://use.fontawesome.com/releases/v5.2.0/js/all.js")
   body
     .page-container
-      .mb-3.p-4.pt-0.t_white.bg-bk
-        .position-relative.bottom-grey.py-3
+      .mb-3.pt-0.t_white.bg-bk
+        .position-relative.py-3
           .wrapper
-            a.blog-header-logo.t_white(href="/") EatSSU
-        .container.p-3.text-center
-          p.title
-            | What is my next class? 
-            br
-            | Pick it here!
+            p.t_white.title.mb-0 EatSSU
+            p.t_white.f30 음식점 여기 다 eatSSU!
       .container.p-0
         .card-wrapper
+          .category-wrapper
+            button.category 한식
+            button.category 중식
+            button.category 양식
+            button.category 일식
           .row.m-0.justify-content-start
             each v in tableShow
               .flex-index.card
@@ -28,8 +30,11 @@ html(lang="ko")
                   a.text-dark.f15.font-weight-700.mb-05.mt-05.class-title(href="/class?classNo=${classNo}")=v.storeName
                   p=v.storeAddr
                 .line
-                .d-flex.justify-content-between.align-items-center
-                  .row.f13.pl-15px
-                    .line-height-30.mobile
-                      b="TEL : "+v.phoneNumber
-                      b="   #category : "+v.category
+                .f13.star-wrapper
+                  .stars
+                    i.fas.fa-star
+                    i.fas.fa-star
+                    i.fas.fa-star
+                    i.far.fa-star
+                    i.far.fa-star
+                  span.grade (3.3)

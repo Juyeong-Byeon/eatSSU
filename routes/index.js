@@ -6,9 +6,9 @@ router.use(express.static('public'));
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '654654',
+  password : 'dbgmlehd',
   database : 'eatSSU',
-  port :3307
+  port :3306
 });
 
 connection.connect();
