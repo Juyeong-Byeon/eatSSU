@@ -151,3 +151,4 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .star-wrapper{ margin: 5px; display: flex;}
 .stars{ justify-content: flex-start; flex-basis: 88%;}
 .grade{justify-content: flex-end;}
+.random { background: #2962FF; color: white; height: 48px; margin: 2rem 0; width: 100%; border: 1px solid #0D47A1;}
