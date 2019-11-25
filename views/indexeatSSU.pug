@@ -19,6 +19,12 @@ html(lang="ko")
             | Pick it here!
       .container.p-0
         .card-wrapper
+          .category-wrapper
+            form(action="/?category=", method="get")
+              button(name='category' type='submit' value='한식').category 
+              button(name='category' type='submit' value='중식').category 
+              button(name='category' type='submit' value='일식').category
+              button(name='category' type='submit' value='양식').category
           .row.m-0.justify-content-start
             each v in tableShow
               .flex-index.card
