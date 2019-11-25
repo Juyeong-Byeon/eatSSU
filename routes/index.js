@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mysql=require('mysql');
-router.use(express.static('public'));
+// router.use('/kind', express.static('/public'));
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -12,7 +12,6 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-
 
 
 /* GET home page. */
@@ -45,10 +44,38 @@ router.get('/', function(req, res, next) {
  
 });
 
+/* GET home page. */
+router.get('/kind/:name', function(req, res, next) {
+  console.log(req.params.name);
+  connection.query(
+    "SELECT *FROM restaurant WHERE category='"+req.params.name+"'",(error,results,fields)=>{
+      if(error) console.log(error);
+      else{
+      console.log(results);
+      res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results, name: req.params.name});
+      }
+    }
+    );
+ 
+});
+
 router.get('/storeName:',(req,res,next)=>{
-
   res.send('OK');
+});
 
+router.get('/kind/:name/random', function(req, res, next) {
+  console.log(req.params.name);
+  connection.query(
+    "SELECT *FROM restaurant WHERE category='"+req.params.name+"'",(error,results,fields)=>{
+      if(error) console.log(error);
+      else{
+      console.log(results);
+      const randomIndex = Math.floor(Math.random() *  results.length);
+      console.log(randomIndex);
+      res.render('random', { title: 'eatSSU' ,store:results[randomIndex]});
+      }
+    }
+    );
 
 });
 
