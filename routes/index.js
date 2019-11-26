@@ -6,9 +6,9 @@ const mysql=require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '654654',
+  password : 'dbgmlehd',
   database : 'eatSSU',
-  port :3307
+  port :3306
 });
 
 connection.connect();
@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
       res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results});
       }
     }
-    );
+  );
   }else{
     connection.query(
     "SELECT *FROM restaurant",(error,results,fields)=>{
@@ -39,9 +39,7 @@ router.get('/', function(req, res, next) {
         }
       }
     );
-
   }
- 
 });
 
 /* GET home page. */
@@ -58,29 +56,26 @@ router.get('/kind/:name', function(req, res, next) {
         res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results, name: category});
         }
       }
-      );  
+    );
   }else{
-      connection.query(
-        "SELECT *FROM restaurant",(error,results,fields)=>{
-          if(error) console.log(error);
-          else{
-          console.log(results);
-          res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results });
-          }
+    connection.query(
+      "SELECT *FROM restaurant",(error,results,fields)=>{
+        if(error) console.log(error);
+        else{
+        console.log(results);
+        res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results });
         }
-        );
+      }
+    );
   }
- 
 });
 
 router.get('/storeName:',(req,res,next)=>{
   res.send('OK');
 });
 
-
+// get random page
 router.get('/kind/:name/random', function(req, res, next) {
-  
-  
   let category=req.params.name
   console.log(category);
   if(category!="all"){
@@ -109,7 +104,23 @@ router.get('/kind/:name/random', function(req, res, next) {
         }
         );
   }
+});
 
+// get store page
+router.get('/kind/:name/:storeName', function(req, res, next) {
+  let category=req.params.name
+  let storeName=req.params.storeName
+  console.log(req.params);
+  connection.query(
+    `SELECT *FROM restaurant WHERE category='${category}' and storeName='${storeName}'`,(error,results,fields)=>{
+      if(error) console.log(error);
+      else{
+      console.log('hi');
+      console.log(results);
+      res.render('review', { title: 'eatSSU' ,storeName:results.storeName});
+      }
+    }
+  );
 });
 
 module.exports = router;
