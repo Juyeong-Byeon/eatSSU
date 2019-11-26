@@ -15,6 +15,7 @@ connection.connect();
 
 
 /* GET home page. */
+////////////////////////////////////////////////////////////////////////////////////////레거시코드
 router.get('/', function(req, res, next) {
   let category=req.query.category
   console.log(category);
@@ -43,9 +44,9 @@ router.get('/', function(req, res, next) {
   }
  
 });
-
+//////////////////////////////////////////////////////////////////////////////////////main page 구현파트
 /* GET home page. */
-router.get('/kind/:name', function(req, res, next) {
+router.get('/kind/:name', (req, res, next)=>{
  
   let category=req.params.name
   console.log(req.params.name);
@@ -85,11 +86,31 @@ router.get('/kind/:name', function(req, res, next) {
  
 });
 
+router.get('/kind/:name/:storeName', (req, res, next)=>{
+
+  connection.query(//탭에 따른 쿼리
+    "SELECT *FROM restaurant WHERE storeName='"+req.params.storeName+"'",(error,results,fields)=>{
+      if(error) console.log(error);
+      else{
+      console.log(results);
+      res.render('review',{storeInfo:results});
+      }
+    }
+    );  
+
+  
+
+});
+
+
+
+
+
 router.get('/storeName:',(req,res,next)=>{
   res.send('OK');
 });
 
-
+//////////////////////////////////////////////////////////////////////////////////////랜덤뽑기 구현파트
 router.get('/kind/:name/random', function(req, res, next) {
   
   
