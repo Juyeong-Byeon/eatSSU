@@ -86,22 +86,6 @@ router.get('/kind/:name', (req, res, next)=>{
  
 });
 
-router.get('/kind/:name/:storeName', (req, res, next)=>{
-
-  connection.query(//탭에 따른 쿼리
-    "SELECT *FROM restaurant WHERE storeName='"+req.params.storeName+"'",(error,results,fields)=>{
-      if(error) console.log(error);
-      else{
-      console.log(results);
-      res.render('review',{storeInfo:results});
-      }
-    }
-    );  
-
-  
-
-});
-
 
 
 
@@ -110,42 +94,61 @@ router.get('/storeName:',(req,res,next)=>{
   res.send('OK');
 });
 
-//////////////////////////////////////////////////////////////////////////////////////랜덤뽑기 구현파트
-router.get('/kind/:name/random', function(req, res, next) {
-  
-  
-  let category=req.params.name
-  console.log(category);
-  if(category!="all"){
-    connection.query(
-      "SELECT *FROM restaurant WHERE category='"+category+"'",(error,results,fields)=>{
-        if(error) console.log(error);
-        else{
-        console.log(results);
-        const randomIndex = Math.floor(Math.random() *  results.length);
-        console.log(randomIndex);
-        res.render('random', { title:'eatSSU' ,results: results[randomIndex]});
-        console.log(results[randomIndex]);
-        }
-      }
-      );
-  }
-  else{
+//////////////////////////////////////////////////////////////////////////////////////랜덤뽑기,각 리뷰페이지 구현파트
+
+router.get('/kind/:category/:storeName', (req, res, next)=>{
+  console.log(req.params.storeName);
+  if(req.params.storeName=='random'){
+    let category=req.params.category
+    console.log(category);
+    if(category!="all"){
       connection.query(
-        "SELECT *FROM restaurant",(error,results,fields)=>{
+        "SELECT *FROM restaurant WHERE category='"+category+"'",(error,results,fields)=>{
           if(error) console.log(error);
           else{
           console.log(results);
           const randomIndex = Math.floor(Math.random() *  results.length);
           console.log(randomIndex);
-          
-          res.render('random', { title: 'eatSSU' ,results:results[randomIndex]});
-          
+          res.render('random', { title:'eatSSU' ,results: results[randomIndex]});
+          console.log(results[randomIndex]);
           }
         }
-        );
+      );
+    }
+    else{
+        connection.query(
+          "SELECT *FROM restaurant",(error,results,fields)=>{
+            if(error) console.log(error);
+            else{
+            console.log(results);
+            const randomIndex = Math.floor(Math.random() *  results.length);
+            console.log(randomIndex);
+            
+            res.render('random', { title: 'eatSSU' ,results:results[randomIndex]});
+            
+            }
+          }
+          );
+    }
+  }
+  else{
+    connection.query(//탭에 따른 쿼리
+      "SELECT *FROM restaurant WHERE storeName='"+req.params.storeName+"'",(error,results,fields)=>{
+        if(error) console.log(error);
+        else{
+        console.log(results);
+        res.render('review',{storeInfo:results});
+        }
+      }
+      );
   }
 
+
+  
+
 });
+
+
+
 
 module.exports = router;
