@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mysql=require('mysql');
-router.use(express.static('public'));
+// router.use('/kind', express.static('/public'));
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -14,10 +14,12 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.query.category);
+  let category=req.query.category
+  console.log(category);
+
+  if(category){
   connection.query(
     "SELECT *FROM restaurant WHERE category='"+req.query.category+"'",(error,results,fields)=>{
       if(error) console.log(error);
@@ -27,8 +29,6 @@ router.get('/', function(req, res, next) {
       }
     }
     );
-<<<<<<< Updated upstream
-=======
   }else{
     connection.query(
     "SELECT *FROM restaurant",(error,results,fields)=>{
@@ -82,16 +82,14 @@ router.get('/kind/:name', function(req, res, next) {
         }
         );
   }
->>>>>>> Stashed changes
  
 });
 
 router.get('/storeName:',(req,res,next)=>{
-
   res.send('OK');
+});
 
-<<<<<<< Updated upstream
-=======
+
 router.get('/kind/:name/random', function(req, res, next) {
   
   
@@ -126,7 +124,6 @@ router.get('/kind/:name/random', function(req, res, next) {
         }
         );
   }
->>>>>>> Stashed changes
 
 });
 
