@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+html(lang="ko")
+  head
+    meta(charset="utf-8")
+    title EatSSU
+    // Bootstrap core CSS
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+    link(href="/stylesheets/ann.css" rel="stylesheet")
+    script(src="https://use.fontawesome.com/releases/v5.2.0/js/all.js")
+  body
+    .page-container
+      .mb-3.pt-0.t_white.bg-bk
+        .position-relative.py-3
+          .wrapper
+            a(href='/kind/all')
+              p.t_white.title.mb-0 EatSSU
+              p.t_white.f30 음식점도 골라줌, 여기 eatSSU!
+      .container.p-0
+        .card-wrapper
+          .category-wrapper
+            button(type="button" value='한식' name="category" onclick="location.href='/kind/한식'").category 한식
+            button(type="button" value='중식' name="category" onclick="location.href='/kind/중식'").category 중식
+            button(type="button" value='일식' name="category" onclick="location.href='/kind/일식'").category 일식
+            button(type="button" value='양식' name="category" onclick="location.href='/kind/양식'").category 양식
+          .row.m-0.justify-content-start
+           
+            .flex-index.card
+              .img-box
+                img.photo(src="/images/"+results.storeName+".jpg" alt="")
+              .class-title-wrap
+                a.text-dark.f15.font-weight-700.mb-05.mt-05.class-title(href="/class?classNo=${classNo}")=results.storeName
+                p=results.storeAddr
+              .line
+              .f13.star-wrapper
+                .stars
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.far.fa-star
+                  i.far.fa-star
+                span.grade=results.score
+          a.button.random(href=`/kind/${name}/random`) 랜덤뽑기
+

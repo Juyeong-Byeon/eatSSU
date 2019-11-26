@@ -142,5 +142,18 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .center{ margin-left: auto; margin-right: auto; }
 .position-relative { position:relative !important }
 .wrapper { text-align: center; }
+<<<<<<< Updated upstream
 .wrapper::after {content: ""; display: block; width: 100%; margin-top: 10px; height: 1px; background-color: #fff;}
 .wrapper h1{ color: #fff; font-size: 92px; font-family: 'ubuntu'; text-transform: uppercase;  font-weight: 700;  font-family: 'Josefin Sans',sans-serif; background: linear-gradient(to right,#697dff 10%,#fff 50%,#5bdaff 60%);  background-size: auto auto;  background-clip: border-box;  background-size: 200% auto;  color: #fff;  background-clip: text;  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;  animation: textclip 1.5s linear infinite;  display: inline-block;}
+=======
+.wrapper h1{ color: #fff; font-size: 92px; font-family: 'ubuntu'; text-transform: uppercase;  font-weight: 700;  font-family: 'Josefin Sans',sans-serif; background: linear-gradient(to right,#697dff 10%,#fff 50%,#5bdaff 60%);  background-size: auto auto;  background-clip: border-box;  background-size: 200% auto;  color: #fff;  background-clip: text;  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;  animation: textclip 1.5s linear infinite;  display: inline-block;}
+.category-wrapper {width: 100%; height: 50px; display: flex; align-items: center; justify-content: center; border:1px solid #0D47A1; margin-bottom:2rem !important; margin: calc(4%/8);}
+.category { height: 100%; flex-basis: 25%; text-align: center; border-left:1px solid #0D47A1; color: #0D47A1;}
+.category:nth-child(1){border: none;}
+.category:hover{ background-color: #E3F2FD; opacity: .8;}
+.fa-star { color: #0D47A1;}
+.star-wrapper{ margin: 5px; display: flex;}
+.stars{ justify-content: flex-start; flex-basis: 95%;}
+.grade{justify-content: flex-end;}
+.random { background: #2962FF; color: white; height: 48px; margin: 2rem 0; width: 100%; border: 1px solid #0D47A1; justify-content: center; align-items: center; display: flex;}
+>>>>>>> Stashed changes
