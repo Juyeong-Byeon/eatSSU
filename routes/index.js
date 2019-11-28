@@ -6,9 +6,9 @@ const mysql=require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'dbgmlehd',
+  password : '654654',
   database : 'eatSSU',
-  port :3306,
+  port :3307,
   multipleStatements: true
 });
 
@@ -122,7 +122,7 @@ router.post('/kind/:category/:storeName',(req,res,next)=>{//리뷰를 작성했�
   let sqls=[]; //C/R/U/D 기능을 위한 쿼리문들.
   sqls[0]=`INSERT INTO review VALUES(${reviewID++},'${req.params.storeName}','${req.body.nickname}','${req.body.password}','${req.body.reviewDesc}',now());`;//C기능
   sqls[1]=`UPDATE review SET reviewDesc='${req.body.reviewDesc}' where reviewID=(SELECT reviewID FROM review WHERE nickname='${req.body.nickname}' AND password='${req.body.password}')`;//U
-  sqls[2]=`DELETE From review where reviewID=(SELECT reviewID FROM review WHERE nickname='${req.body.nickname}' AND password='${req.body.password}');`;//D
+  sqls[2]=`DELETE From review where reviewID=${req.body.delete};`;//D
   //위 코드상에서 바로 닉네임과 패스워드를 선택해서 삭제해도 되지만 review 릴레이션의 key는 reviewID 와 storeName 이기 때문에 이렇게 쿼리를 작성하였다.
   sqls[3]=`SELECT *FROM restaurant WHERE storeName='${req.params.storeName}'; `;//R기능
   sqls[4]=`SELECT *FROM review WHERE storeName='${req.params.storeName}';`;//R기능
@@ -149,6 +149,19 @@ if(req.body.buttons=='insert'){
     res.render('review',{storeInfo:results[1],reviews:results[2]});
     }
   });
+}
+if(req.body.delete){
+  connection.query(//탭에 따른 쿼리
+    sqls[2]+sqls[3]+sqls[4],(error,results,fields)=>{
+      
+      if(error) console.log(error);
+      else{
+      console.log(results[0],"++++++++++++++");
+      res.render('review',{storeInfo:results[1],reviews:results[2]});
+      }
+    });
+
+
 }
   
 }

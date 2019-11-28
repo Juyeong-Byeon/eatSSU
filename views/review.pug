@@ -7,6 +7,7 @@ html(lang="ko")
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
     link(href="/stylesheets/ann.css" rel="stylesheet")
     script(src="https://use.fontawesome.com/releases/v5.2.0/js/all.js")
+    script( type='text/javaScript' src="/javascripts/indexeatSSU.js")
   body
     .page-container
       .mb-3.pt-0.t_white.bg-bk
@@ -41,13 +42,14 @@ html(lang="ko")
                   input(type='text' name='password' placeholder="비밀번호 4자리")#password.review-box
                   button(type='submit' name='buttons' value='insert')#btn.review-box 리뷰추가
           each review, index in reviews 
-            .reviews.column
+            .reviews.column(id="review"+review.reviewID)
               .review
                 .flex-row #{review.nickname}
                   //- a.fas.fa-edit.review-icon(href=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}/${review.reviewID}`)
                   //- a(onclick=`loadReview(${index})`).fas.fa-edit.review-icon 
                   a.review-icon(href=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}/${review.reviewID}`) 수정
-                  i.fas.fa-trash-alt.review-icon
+                  form(action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post")
+                    input( type='submit' name='delete' value=review.reviewID)
                 .review-content #{review.reviewDesc}
                 p.mt-1 #{review.date}
               hr
