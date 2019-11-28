@@ -160,16 +160,17 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .radius-none{border-radius: 0 !important; margin:0;}
 .review-wrapper{display: flex; flex-direction: column;}
 .review-count{ width: 100%; border: 1px solid #0D47A1; height: 40px; display: flex; align-items: center; padding-left: 10px;}
-.review-write{ width: 100%; border: 1px solid #0D47A1; display: flex; flex-direction: column; align-items: center; padding:10px; margin-top: 10px;}
+.review-write{ width: 100%; border: 1px solid #0D47A1; display: flex; flex-direction: column; align-items: center; padding: 2%; margin-top: 10px;}
 .review-box{ width: 100%; border: 1px solid #0D47A1; height: 40px; padding: 10px;}
-#content.review-box{height: 100px; margin: 10px 0;}
+#content.review-box{height: 100px; margin: 10px 0 3px 0 ;}
 .flex-row{flex-direction: row; width: 100%;}
 #password.review-box{width: 73%; overflow-y: scroll;}
 #btn.review-box{width:25%; margin-left: 2%; position: relative; top: 2px;}
 .reviews{ margin-top: 10px; display: flex; border: 1px solid #0D47A1; width: 100%; padding: 10px;}
 .review{ height: 100px; }
 .review-nickname{ width: 80%;}
-.review-icon{ float: right; margin-left: 20px; cursor: pointer;}
+.review-icon{ float: right; margin-left: 20px; cursor: pointer; }
+.review-delete{ border: none;}
 .review-content{ margin-top: 5px; height: 70px; overflow-y: scroll;}
 .search-icon{ color: #0D47A1; background-color: white; border: 2px solid #0D47A1; box-sizing: border-box;} 
 .search-input{ border: 1px solid rgb(225, 227, 230); }
