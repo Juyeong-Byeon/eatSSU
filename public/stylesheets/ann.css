@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .flex-index { flex-basis: 24%; }
 .container{ width: 80%;}
 .card-wrapper { display: block; -webkit-box-sizing: border-box; box-sizing: border-box; letter-spacing: -.05em; }
-.card-wrapper .inner-container {min-width: 1194px; max-width: 1194px;  margin: 0 auto; padding-top: 130px; } }
+.card-wrapper .inner-container {min-width: 1194px; max-width: 1194px;  margin: 0 auto; padding-top: 130px; }
 .card-wrapper .shc-sub-title {font-size: 14px;  display: block; color: #1b2733; }
 .d-flex{display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important}
 .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap; margin: 2px -.75rem;}
@@ -165,4 +165,9 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 #content.review-box{height: 100px; margin: 10px 0;}
 .flex-row{flex-direction: row; width: 100%;}
 #password.review-box{width: 73%; overflow-y: scroll;}
-#btn.review-box{width:25%; margin-left: 2%; }
+#btn.review-box{width:25%; margin-left: 2%; position: relative; top: 2px;}
+.reviews{ margin-top: 10px; display: flex; border: 1px solid #0D47A1; width: 100%; padding: 10px;}
+.review{ height: 100px; }
+.review-nickname{ width: 80%;}
+.review-icon{ float: right; margin-left: 20px; margin-top: 5px; }
+.review-content{ margin-top: 5px; height: 70px; overflow-y: scroll;}
