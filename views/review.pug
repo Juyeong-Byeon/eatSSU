@@ -19,11 +19,11 @@ html(lang="ko")
         .card-60.d-flex.column
           .flex-index.card.radius-none
             .store-img-box
-              img.photo(src=`/images/김가네.jpg` alt="")
+              img.photo(src=`/images/${storeInfo[0].storeName}.jpg` alt="")
           .store-info
             p.font-weight-700.store-name #{storeInfo[0].storeName}
             .line
-            dl.row.pl-2.f15
+            dl.row.pl-2.f15 
               dt.col-sm-3.font-weight-700 장소
               dd.col-sm-9 #{storeInfo[0].storeAddr}
               dt.col-sm-3.font-weight-700 전화번호
