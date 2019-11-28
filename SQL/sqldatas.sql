@@ -39,8 +39,9 @@ INSERT INTO review VALUE(,,,,,);
 DELETE From review where reviewID='리뷰아이디';
 UPDATE review SET discription='수정 내용' where reviewID=(select reviewID FROM review where nickname=''AND password='');
 
+INSERT INTO review VALUE(1,'백채김치찌개','wndudqus','5449','이집 참 맛집이네요',now());
 
-
+INSERT INTO review VALUES
 
 //음식점 릴레이션
 CREATE TABLE restaurant(
