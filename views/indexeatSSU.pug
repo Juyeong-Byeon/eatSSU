@@ -16,8 +16,8 @@ html(lang="ko")
               p.t_white.title.mb-0 EatSSU
               p.t_white.f30 음식점 여기 다 eatSSU!
             form(action="/kind/search", method="get")
-              input(type="text", name="searchKeyword")
-              input(type="submit", value="검색")
+              input(type="text", name="searchKeyword").search-input
+              input(type="submit", value="검색").search-icon
       .container.p-0
 
         .category-wrapper
@@ -45,5 +45,5 @@ html(lang="ko")
                     -}
                   -}
                 span.grade=v.score
-          a.button.random(href=`/kind/${name}/random`) 랜덤뽑기
+          a.button.random.mt-2(href=`/kind/${name}/random`) 랜덤뽑기
             
