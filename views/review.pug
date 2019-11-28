@@ -51,5 +51,5 @@ html(lang="ko")
                   form(action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post")
                     input( type='submit' name='delete' value=review.reviewID)
                 .review-content #{review.reviewDesc}
-                p.mt-1 #{review.date}
+                p.mt-1 #{new Date(review.date).toLocaleString()}
               hr

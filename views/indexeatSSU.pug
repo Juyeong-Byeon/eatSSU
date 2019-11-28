@@ -45,5 +45,5 @@ html(lang="ko")
                     -}
                   -}
                 span.grade=v.score
-          a.button.random.mt-2(href=`/kind/${name}/random`) 랜덤뽑기
+          a.button.random.mt-2(href=`/kind/${name}/${tableShow[Math.floor(Math.random() * tableShow.length)].storeName}`) 랜덤뽑기
             
