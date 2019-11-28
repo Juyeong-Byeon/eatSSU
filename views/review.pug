@@ -34,17 +34,18 @@ html(lang="ko")
           .review-wrpper
             .review-count 리뷰(22)
             .review-write
-              form(action="/kind/:category/:storeName", method="post")
-                input(type='text' name='review' placeholder="닉네임").review-box
-                textarea(type='text' name='review' placeholder="리뷰를 입력하세요 (100자 이내)")#content.review-box
+              form(action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post")
+                input(type='text' name='nickname' placeholder="닉네임").review-box
+                textarea(type='text' name='reviewDesc' placeholder="리뷰를 입력하세요 (100자 이내)")#content.review-box
                 .flex-row
-                  input(type='text' name='review' placeholder="비밀번호 4자리")#password.review-box
-                  button#btn.review-box 리뷰추가
+                  input(type='text' name='password' placeholder="비밀번호 4자리")#password.review-box
+                  button(type='submit' name='buttons' value='insert')#btn.review-box 리뷰추가
+          each review in reviews      
             .reviews.column
               .review 
-                .flex-row quswndud
-                  i.fas.fa-edit.review-icon
-                  i.fas.fa-trash-alt.review-icon
-                .review-content 여기에 이렇게 내용이 쓰이겠지.여기에 이렇게 내용이 쓰이겠지.여기에 이렇게 내용이 쓰이겠지.여기에 이렇게 내용이 쓰이겠지.여기에 이렇게 내용이 쓰이겠지..여기에 이렇게 내용이 쓰이겠지.여기에 이렇게 내용이 쓰이겠지.여기에 이렇게 내용이 쓰이겠지.여기이렇게내용이쓰이겠지.
-                p.mt-1 2019.11.11
+                .flex-row #{review.nickname}
+                  i.fas.fa-edit.review-icon 
+                  i.fas.fa-trash-alt.review-icon 
+                .review-content #{review.reviewDesc}
+                p.mt-1 #{review.date}
               hr
