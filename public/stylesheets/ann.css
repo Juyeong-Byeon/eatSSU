@@ -119,6 +119,7 @@ a:hover{text-decoration-line: none;}
 .tag{ padding: 0; }
 .class-title-wrap{ height: 53px; margin-top: .25rem; overflow: hidden; text-overflow: ellipsis; white-space: normal; width: 100%;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
 .class-title{text-overflow: ellipsis;}
+.store-addr{overflow: scroll; height: 20px;}
 .bottom-grey { border-bottom: 1px solde #e5e5e5; }
 h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
 .flex-index { flex-basis: 24%; }
@@ -145,7 +146,7 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .wrapper { text-align: center; }
 .wrapper h1{ color: #fff; font-size: 92px; font-family: 'ubuntu'; text-transform: uppercase;  font-weight: 700;  font-family: 'Josefin Sans',sans-serif; background: linear-gradient(to right,#697dff 10%,#fff 50%,#5bdaff 60%);  background-size: auto auto;  background-clip: border-box;  background-size: 200% auto;  color: #fff;  background-clip: text;  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;  animation: textclip 1.5s linear infinite;  display: inline-block;}
 .category-wrapper {width: 100%; height: 50px; display: flex; align-items: center; justify-content: center; border:1px solid #0D47A1; margin-bottom:2rem !important; margin: calc(4%/8);}
-.category { height: 100%; flex-basis: 25%; text-align: center; border-left:1px solid #0D47A1; color: #0D47A1;}
+.category { height: 100%; flex-basis: 25%; text-align: center; border-left:1px solid #0D47A1; color: #0D47A1; background-color: white;}
 .category:nth-child(1){border: none;}
 .category:hover{ background-color: #E3F2FD; opacity: .8;}
 .fa-star { color: #0D47A1;}
@@ -169,5 +170,5 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .reviews{ margin-top: 10px; display: flex; border: 1px solid #0D47A1; width: 100%; padding: 10px;}
 .review{ height: 100px; }
 .review-nickname{ width: 80%;}
-.review-icon{ float: right; margin-left: 20px; margin-top: 5px; }
+.review-icon{ float: right; margin-left: 20px; margin-top: 5px; cursor: pointer;}
 .review-content{ margin-top: 5px; height: 70px; overflow-y: scroll;}
