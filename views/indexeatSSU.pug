@@ -45,5 +45,7 @@ html(lang="ko")
                     -}
                   -}
                 span.grade=v.score
-          a.button.random(href=`/kind/${name}/random`) 랜덤뽑기
-
+          -if(typeof name === undefined){
+            a.button.random(href=`/kind/${name}/random`) 랜덤뽑기
+            -}
+            
