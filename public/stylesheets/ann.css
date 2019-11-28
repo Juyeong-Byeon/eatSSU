@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .reviews{ margin-top: 10px; display: flex; border: 1px solid #0D47A1; width: 100%; padding: 10px;}
 .review{ height: 100px; }
 .review-nickname{ width: 80%;}
-.review-icon{ float: right; margin-left: 20px; margin-top: 5px; cursor: pointer;}
+.review-icon{ float: right; margin-left: 20px; cursor: pointer;}
 .review-content{ margin-top: 5px; height: 70px; overflow-y: scroll;}
 .search-icon{ color: #0D47A1; background-color: white; border: 2px solid #0D47A1; box-sizing: border-box;} 
 .search-input{ border: 1px solid rgb(225, 227, 230); }
