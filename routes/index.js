@@ -15,6 +15,7 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
+/* GET home page. */
 
 //////////////////////////////////////////////////////////////////////////////////////main page 구현파트
 /* GET home page. */
@@ -49,7 +50,7 @@ router.get('/kind/:name', (req, res, next)=>{
           if(error) console.log(error);
           else{
           console.log(results);
-          res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results });
+          res.render('indexeatSSU', { title: 'eatSSU' ,tableShow:results, name:category });
           }
         }
         );
