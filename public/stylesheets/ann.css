@@ -135,11 +135,11 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .card { background-color: #fff; padding: 10px 10px 0 10px; margin:calc(4%/8); border:1px solid #0D47A1;}
 .flex-24:hover{  -webkit-transform: scale(1.03); -moz-transform: scale(1.03);  -ms-transform: scale(1.03);  transform: scale(1.03); box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16); transition: 0.3s; color: black;}
 .justify-content-start{ justify-content: flex-start; }
-.card-60 { flex-basis: 60%;}
+.card-60 { flex-basis: 58%; margin-right: 2%;}
 .card-40 { flex-basis: 40%;}
 .row-class{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-.75rem;margin-left:-.75rem;}
 
-.line{ height: 1px; width: 100%; background-color: #8c98a4; }
+.line{ height: 1px; width: 100%; background-color: #0D47A1; margin-bottom: 1rem;}
 .center{ margin-left: auto; margin-right: auto; }
 .position-relative { position:relative !important }
 .wrapper { text-align: center; }
@@ -153,3 +153,16 @@ h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", Georgia, "Times New Ro
 .stars{ justify-content: flex-start; flex-basis: 95%;}
 .grade{justify-content: flex-end;}
 .random { background: #2962FF; color: white; height: 48px; margin: 2rem 0; width: 100%; border: 1px solid #0D47A1; justify-content: center; align-items: center; display: flex;}
+.store-photo{width:100%; }
+.store-img-box { position: relative; padding-top: 100%; overflow: hidden; margin-bottom: 10px;}
+.store-info{ margin: 20px 0; border: 1px solid #0D47A1; padding-left: 10px; padding-right: 10px;}
+.store-name{ padding-left: 13px; margin-top: 1rem;}
+.radius-none{border-radius: 0 !important; margin:0;}
+.review-wrapper{display: flex; flex-direction: column;}
+.review-count{ width: 100%; border: 1px solid #0D47A1; height: 40px; display: flex; align-items: center; padding-left: 10px;}
+.review-write{ width: 100%; border: 1px solid #0D47A1; display: flex; flex-direction: column; align-items: center; padding:10px; margin-top: 10px;}
+.review-box{ width: 100%; border: 1px solid #0D47A1; height: 40px; padding: 10px;}
+#content.review-box{height: 100px; margin: 10px 0;}
+.flex-row{flex-direction: row; width: 100%;}
+#password.review-box{width: 73%; overflow-y: scroll;}
+#btn.review-box{width:25%; margin-left: 2%; }
