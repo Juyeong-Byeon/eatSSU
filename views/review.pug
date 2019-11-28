@@ -49,5 +49,5 @@ html(lang="ko")
                   a.review-icon(href=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}/${review.reviewID}`) 수정
                   i.fas.fa-trash-alt.review-icon
                 .review-content #{review.reviewDesc}
-                p.mt-1 #{review.date}
+                p.mt-1 #{new Date(review.date).toLocaleString()}
               hr
