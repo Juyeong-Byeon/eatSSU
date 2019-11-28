@@ -32,8 +32,8 @@ html(lang="ko")
                   img.photo(src="/images/"+v.storeName+".jpg" alt="")
                 .class-title-wrap
                   a.text-dark.f15.font-weight-700.mb-05.mt-05.class-title(href="/class?classNo=${classNo}")=v.storeName
-                  p=v.storeAddr
-                .line
+                  p.store-addr #{v.storeAddr}
+                .line.mb-0
                 .f13.star-wrapper
                   .stars
                     -for(let k=0;k<5;k++){
