@@ -1,10 +1,15 @@
-import { sequenceExpression } from "babel-types";
 
 function deleteReview(reviewID,nickname,password){
     console.log("review"+reviewID);
 
-    
-    document.querySelector("#review"+reviewID).remove();
+    let inputpassword=prompt('비밀번호:');
+    if (inputpassword==password) {
+        return true;
+        
+    }else{
+        alert('비밀번호가 틀렸습니다.!');
+        return false;
+    }
 
 
 }

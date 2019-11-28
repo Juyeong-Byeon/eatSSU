@@ -46,7 +46,7 @@ html(lang="ko")
               .review
                 .flex-row #{review.nickname}
                   a.review-icon(href=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}/${review.reviewID}`) 수정
-                  form(action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post").review-icon
+                  form(id="form"+review.reviewID action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post" onsubmit=`return deleteReview(${review.reviewID},'${review.nickname}',${review.password})` ).review-icon
                     button( type='submit' name='delete' value=review.reviewID).review-delete 삭제
                 .review-content #{review.reviewDesc}
                 p.mt-1 #{new Date(review.date).toLocaleString()}
