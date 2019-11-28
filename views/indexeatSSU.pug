@@ -36,11 +36,14 @@ html(lang="ko")
                 .line
                 .f13.star-wrapper
                   .stars
-                    i.fas.fa-star
-                    i.fas.fa-star
-                    i.fas.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
+                    -for(let k=0;k<5;k++){
+                     -if(k<v.score){
+                      i.fas.fa-star
+                      -}
+                     -else{
+                      i.far.fa-star
+                      -}
+                    -}
                   span.grade=v.score
             a.button.random(href=`/kind/${name}/random`) 랜덤뽑기
 
