@@ -6,9 +6,9 @@ const mysql=require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '654654',
+  password : 'dbgmlehd',
   database : 'eatSSU',
-  port :3307,
+  port :3306,
   multipleStatements: true
 });
 
@@ -154,6 +154,78 @@ if(req.body.buttons=='insert'){
 }
 );
 
+router.get('/kind/:category/:storeName/:reviewID', (req, res, next)=>{
+  let category = req.params.category;
+  let storeName = req.params.storeName;
+  let reviewID = req.params.reviewID;
+  if(storeName=='random'){//렌덤일 시에 쿼리를 진행한다. 
+    console.log(category);
+    if(category!="all"){
+      connection.query(//각 탭에 맞는 값만 불러와서 랜덤뽑기를 진행 할 때 
+        "SELECT *FROM restaurant WHERE category='"+category+"'",(error,results,fields)=>{
+          if(error) console.log(error);
+          else{
+          console.log(results);
+          const randomIndex = Math.floor(Math.random() *  results.length);
+          console.log(randomIndex);
+          res.render('random', { title:'eatSSU' ,results: results[randomIndex]});
+          console.log(results[randomIndex]);
+          }
+        }
+      );
+    }
+    else{
+        connection.query(//모든 값을 불러와서 랜덤을 진행해야 할 때,
+          "SELECT *FROM restaurant",(error,results,fields)=>{
+            if(error) console.log(error);
+            else{
+            console.log(results);
+            const randomIndex = Math.floor(Math.random() *  results.length);
+            console.log(randomIndex);
+            
+            res.render('random', { title: 'eatSSU' ,results:results[randomIndex]});
+            
+            }
+          }
+          );
+    }
+  }
+  else{//랜덤쿼리가 아닐경우.
+    connection.query(//탭에 따른 쿼리
+      `SELECT *FROM restaurant WHERE storeName='${req.params.storeName}';SELECT *FROM review WHERE reviewID='${reviewID}' and storeName='${storeName}'`,(error,results,fields)=>{
+        if(error) console.log(error);
+        else{
+        console.log(results[0],results[1]);
+        
+        res.render('reviewEdit',{storeInfo:results[0],review:results[1]});
+        }
+      }
+      );
+  }
+});
 
+router.post('/kind/:category/:storeName/:reviewID/edit', (req, res, next)=>{
+  console.log('====================input herer');
+  const storeName = req.params.storeName;
+  const reviewID = req.params.reviewID;
+  const reviewDesc = req.body.reviewDesc;
+  const password = req.body.password;
+
+  const query =`UPDATE review SET reviewDesc='${reviewDesc}' where reviewID='${reviewID}' and storeName='${storeName}' and password='${password}';`;//U
+
+  const sqls=[]; //C/R/U/D 기능을 위한 쿼리문들.
+  sqls.push(`SELECT *FROM restaurant WHERE storeName='${storeName}'; `);//R기능
+  sqls.push(`SELECT *FROM review WHERE storeName='${req.params.storeName}';`);//R기능
+
+  connection.query(
+    query+sqls.join(''), (error,results,fields) => {
+      if(error) console.log(error);
+      else {
+        console.log(results[0],results[1],results[2]);
+        res.render('review',{storeInfo:results[1],reviews:results[2]});
+      }
+    }
+  )
+});
 
 module.exports = router;
