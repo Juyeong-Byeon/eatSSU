@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mysql=require('mysql');
+let reviewID=0;
 // router.use('/kind', express.static('/public'));
 
 var connection = mysql.createConnection({
@@ -13,6 +14,15 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
+connection.query(//탭에 따른 쿼리
+  "SELECT MAX(reviewID) FROM review",(error,results,fields)=>{
+    if(error) console.log(error);
+    else{
+    reviewID=results[0]['MAX(reviewID)']+1;
+    console.log(reviewID);
+    }
+  }
+  );  
 
 
 /* GET home page. */
@@ -20,7 +30,9 @@ connection.connect();
 //////////////////////////////////////////////////////////////////////////////////////main page 구현파트
 /* GET home page. */
 router.get('/kind/:name', (req, res, next)=>{
+ ////////////////////////////////////////////////////////////////////////////////////////////////
  
+ ////////////////////////////////////////////////////////////////////////////////////////////////   
   let category=req.params.name
   console.log(req.params.name);
   if(category!='all'&&category!='search'){//현재 단계에서 특수한 경우는 category가 all 이거나  search 인 경우 밖에 없음  두 경우면 fll off
@@ -117,7 +129,7 @@ router.get('/kind/:category/:storeName', (req, res, next)=>{
   }
 });
 
-let reviewID=0;
+
 router.post('/kind/:category/:storeName',(req,res,next)=>{//리뷰를 작성했을 때 post로 받음. 
   let sqls=[]; //C/R/U/D 기능을 위한 쿼리문들.
   sqls[0]=`INSERT INTO review VALUES(${reviewID++},'${req.params.storeName}','${req.body.nickname}','${req.body.password}','${req.body.reviewDesc}',now());`;//C기능
@@ -158,6 +170,8 @@ if(req.body.delete){
       else{
       console.log(results[0],"++++++++++++++");
       res.render('review',{storeInfo:results[1],reviews:results[2]});
+      reviewID--;
+
       }
     });
 

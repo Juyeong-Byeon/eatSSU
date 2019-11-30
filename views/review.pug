@@ -33,7 +33,7 @@ html(lang="ko")
               dd.col-sm-9=`${storeInfo[0].startTime} ~ ${storeInfo[0].endTime}`
         .card-40 
           .review-wrpper
-            .review-count 리뷰(22)
+            .review-count 리뷰: #{storeInfo[0].storeName} 
             .review-write
               form(action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post")
                 input(type='text' name='nickname' placeholder="닉네임")#nickname.review-box
