@@ -34,6 +34,9 @@ INSERT INTO restaurant VALUE('마루스시','서울특별시 동작구 상도동
 INSERT INTO restaurant VALUE( '맥도날드','서울특별시 동작구 상도동 505-5',NULL,'24:00:00','0:00:00',4,'양식');
 INSERT INTO restaurant VALUE( '샤로스톤','서울특별시 동작구 상도동 500','02-825-1616','11:30','21:00',5,'양식');
 INSERT INTO restaurant VALUE( '은하수식당','상도동 505-3번지 1층 동작구 서울특별시 KR','02-822-8425',NULL,NULL,NULL,'양식');
+INSERT INTO restaurant VALUE( '풍년집','서울특별시 동작구 상도동 500-16','02-822-2949','11:00','23:00',4,'양식');
+INSERT INTO restaurant VALUE( '은하수식당','상도동 505-3번지 1층 동작구 서울특별시 KR','02-822-8425',NULL,NULL,NULL,'양식');
+INSERT INTO restaurant VALUE( '청년다방','서울특별시 동작구 상도동 502-5','02-823-7319',NULL,NULL,4,'한식');
 -------------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO review VALUE(,,,,,);
 DELETE From review where reviewID='리뷰아이디';
