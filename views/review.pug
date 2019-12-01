@@ -7,7 +7,7 @@ html(lang="ko")
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
     link(href="/stylesheets/ann.css" rel="stylesheet")
     script(src="https://use.fontawesome.com/releases/v5.2.0/js/all.js")
-    script( type='text/javaScript' src="/javascripts/indexeatSSU.js")
+    script( type='text/javaScript' src="/javascripts/review.js")
   body
     .page-container
       .mb-3.pt-0.t_white.bg-bk
@@ -35,9 +35,9 @@ html(lang="ko")
           .review-wrpper
             .review-count 리뷰: #{storeInfo[0].storeName} 
             .review-write
-              form(action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post")
+              form(action=`/kind/${storeInfo[0].category}/${storeInfo[0].storeName}`, method="post" onsubmit=`return checkNull()`)
                 input(type='text' name='nickname' placeholder="닉네임")#nickname.review-box
-                textarea(type='text' name='reviewDesc' placeholder="리뷰를 입력하세요 (100자 이내)")#content.review-box
+                textarea( type='text' name='reviewDesc' placeholder="리뷰를 입력하세요 (100자 이내)")#content.review-box
                 .flex-row
                   input(type='text' name='password' placeholder="비밀번호 4자리")#password.review-box
                   button(type='submit' name='buttons' value='insert')#btn.review-box 리뷰추가
