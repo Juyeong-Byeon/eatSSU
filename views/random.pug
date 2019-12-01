@@ -28,7 +28,7 @@ html(lang="ko")
               .img-box
                 img.photo(src="/images/"+results.storeName+".jpg" alt="")
               .class-title-wrap
-                a.text-dark.f15.font-weight-700.mb-05.mt-05.class-title(href="/class?classNo=${classNo}")=results.storeName
+                a.text-dark.f15.font-weight-700.mb-05.mt-05.class-title=results.storeName
                 p=results.storeAddr
               .line
               .f13.star-wrapper
