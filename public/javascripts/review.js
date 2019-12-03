@@ -1,7 +1,8 @@
 function checkNull(){
     const nicknameInput=document.querySelector('#nickname');
    const reviewDescInput=document.querySelector('#content');
-    if(nicknameInput.value==""||reviewDescInput.value==""){
+   const password=document.querySelector('#password');
+    if(nicknameInput.value==""||reviewDescInput.value==""||password.value==""){
 
         alert('입력 폼을 채우십시오!');
 
